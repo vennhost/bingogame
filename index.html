@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        BINGO CHALLENGE!!!
+        Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+        Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+
+        EXTRA: 
+        - Take ALWAYS a new number (avoid randoming 10 3 times for example)
+        - Create a USER BOARD with random 24 numbers that highlights as the main board does
+        - Let the user choose HOW MANY user boards he's willing to play with and create them.
+    -->
+    <head>
+        <style>
+            #bingo .card {
+                width: 50px;
+                display: inline-block;
+                text-align: center;
+                min-height: 2px;
+                line-height: 2px;
+                border: 1px solid red;
+                cursor: inherit;
+                padding: 10px;
+                
+            }
+            #button {
+                background: red;
+                align-content: right;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Bingo Board</h1>
+        <div id="bingo">
+
+        </div>
+
+        <div id="selectButton">
+            <input type="button" value="Play" id="button" onclick="getNumber()">
+        </div>
+        
+        <script>
+            var bingoNum = [];
+           
+            window.onload = function () {
+                var bingo = document.querySelector("#bingo");
+                for (var i =0; i < 76; i++) {
+                    var pot = document.createElement("div");
+                    pot.className = "card";
+                    var cardNum = document.createElement("h3");
+                    cardNum.innerText = i + 1;
+                    pot.appendChild(cardNum);
+                    bingo.appendChild(pot);
+                    bingoNum [i +1] = [];
+
+                }
+                
+            }
+            function getNumber() {
+
+                                                       
+                    var rndNum = bingoNum[Math.floor(Math.random() * 3)];
+                    document.querySelector("h3").value = rndNum;
+                    
+                   
+                }
+                
+
+                
+        </script>
+    </body>
+</html>
